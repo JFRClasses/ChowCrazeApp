@@ -1,18 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/guidelineS"
+            app:layout_constraintGuide_percent="0.05"
+
+            />
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/guidelineE"
+            app:layout_constraintGuide_percent="0.95"
+
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/header"
+            app:layout_constraintStart_toEndOf="@id/guidelineS"
+            app:layout_constraintEnd_toStartOf="@id/guidelineE"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/title"
+            app:layout_constraintVertical_bias="0"
+            android:layout_width="0dp"
+            android:gravity="center_vertical"
+            android:layout_height="100dp">
+
+            <ImageView
+                android:contentDescription="User"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/baseline_account_circle_24"
+                app:tint="@color/tomatoRed"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hola, Juan"
+                android:textSize="24sp"
+                android:layout_marginStart="8dp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Busca los mejores restaurantes"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/restaurant_recycler_view"
+            app:layout_constraintEnd_toEndOf="@id/guidelineE"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/guidelineS"
+            app:layout_constraintTop_toBottomOf="@id/header" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/restaurant_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/food_title"
+            app:layout_constraintEnd_toStartOf="@id/guidelineE"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/guidelineS"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <TextView
+            android:id="@+id/food_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nuestras mejores comidas"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintBottom_toTopOf="@+id/food_recycler_view"
+            app:layout_constraintEnd_toStartOf="@id/guidelineE"
+            app:layout_constraintStart_toEndOf="@id/guidelineS"
+            app:layout_constraintTop_toBottomOf="@id/restaurant_recycler_view"
+             />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/food_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/food_title"
+            app:layout_constraintStart_toEndOf="@id/guidelineS"
+            app:layout_constraintEnd_toStartOf="@id/guidelineE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
