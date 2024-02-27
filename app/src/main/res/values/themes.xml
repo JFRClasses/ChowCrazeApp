@@ -6,5 +6,10 @@
          <item name="fontFamily">@font/poppins_regular</item>
     </style>
 
+    <style name="CircularImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
     <style name="Theme.ChowCrazeApp" parent="Base.Theme.ChowCrazeApp" />
 </resources>

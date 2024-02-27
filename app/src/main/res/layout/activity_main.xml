@@ -43,8 +43,8 @@
 
             <ImageView
                 android:contentDescription="User"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:src="@drawable/baseline_account_circle_24"
                 app:tint="@color/tomatoRed"
                 />
@@ -56,8 +56,43 @@
                 android:layout_marginStart="8dp"
                 android:textStyle="bold"
                 />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                />
+            <ImageView
+                android:id="@+id/logoutButton"
+                android:contentDescription="User"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/baseline_logout_24"
+                app:tint="@color/tomatoRed"
+                />
 
         </LinearLayout>
+        <TextView
+            android:id="@+id/categoryTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nuestras categorias"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/category_recycler_view"
+            app:layout_constraintEnd_toEndOf="@id/guidelineE"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/guidelineS"
+            app:layout_constraintTop_toBottomOf="@id/header" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/category_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/title"
+            app:layout_constraintEnd_toStartOf="@id/guidelineE"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/guidelineS"
+            app:layout_constraintTop_toBottomOf="@id/categoryTitle" />
 
 
         <TextView
@@ -67,11 +102,12 @@
             android:text="Busca los mejores restaurantes"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toTopOf="@+id/restaurant_recycler_view"
             app:layout_constraintEnd_toEndOf="@id/guidelineE"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@id/guidelineS"
-            app:layout_constraintTop_toBottomOf="@id/header" />
+            app:layout_constraintTop_toBottomOf="@id/category_recycler_view" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/restaurant_recycler_view"
