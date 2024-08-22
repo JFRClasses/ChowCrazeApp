@@ -15,6 +15,7 @@ import com.example.chowcrazeapp.models.Category
 import com.example.chowcrazeapp.models.Food
 import com.example.chowcrazeapp.models.Restaurant
 import com.example.chowcrazeapp.ui.FoodDetailActivity
+import com.example.chowcrazeapp.ui.LoginActivity
 import com.example.chowcrazeapp.ui.RestaurantActivity
 import com.google.android.material.snackbar.Snackbar
 
@@ -28,12 +29,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val sharedPref = getSharedPreferences("mypref", MODE_PRIVATE)
         recyclerView = findViewById(R.id.restaurant_recycler_view)
         categoryRecyclerView = findViewById(R.id.category_recycler_view)
         foodRecyclerView = findViewById(R.id.food_recycler_view)
         logOutImg = findViewById(R.id.logoutButton)
         logOutImg.setOnClickListener {
-            Snackbar.make(logOutImg, "Log out clicked", Snackbar.LENGTH_LONG).show()
+            val editor = sharedPref.edit()
+            editor.remove("isLogged")
+            editor.apply()
+
+            val intent = Intent(this@MainActivity,LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
         setUpRecyclerView()
         setUpCategoryRecyclerView()
